@@ -8,6 +8,8 @@ from PyQt5 import QtGui
 
 
 class OwnFrame:
+    __inputValidatorSetted = False
+
     def __init__(self, parent, width=None, height=None):
         self.__frame = QFrame(parent)
         if width is not None:
@@ -21,11 +23,15 @@ class OwnFrame:
         return self.__frame
 
     def _setup(self):
-        self._setupTextInputRestrict()
+        self._setupTextInputRestrict()  # 这是这个类所有的
         self._setupDataInWidgets()
 
     @classmethod
     def _setupTextInputRestrict(cls):
+        if cls.__inputValidatorSetted:  # 已经设置过了
+            return
+        cls.__inputValidatorSetted = True
+
         ncRegx = QtCore.QRegExp(r"[a-zA-Z\d]+")  # 匹配数字和字母的组合
         cls.ncRegxValidator = QtGui.QRegExpValidator(ncRegx)
 

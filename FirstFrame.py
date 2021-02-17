@@ -4,7 +4,6 @@
 
 from OwnFrame import *
 from DataManager import *
-import sys
 
 
 class FirstFrame(OwnFrame):
