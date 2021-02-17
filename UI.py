@@ -3,6 +3,7 @@
 # python version 3.8
 
 from FirstFrame import *
+import sys
 
 
 class OwnApplication:
